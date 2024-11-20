@@ -1,0 +1,207 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Wrapper for Profile Section */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background-color: inherit; /* Use background from theme */
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: inherit; /* Use background from theme */
+  color: inherit; /* Use text color from theme */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-left {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.navbar-link {
+  color: inherit; /* Use text color from theme */
+  text-decoration: none;
+  font-size: 1.2em;
+  padding: 0 15px;
+}
+
+.navbar-link:hover {
+  color: #ff5733;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5em;
+  transition: color 0.3s ease-in-out;
+}
+
+.theme-toggle:hover {
+  color: #ff5733;
+}
+
+/* Profile Image */
+.profile-image {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* Header and Subheader */
+.header {
+  margin-top: 10px;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+.sub-header {
+  font-size: 1.3em;
+  font-weight: 500;
+  opacity: 0.7;
+  color: inherit; /* Use text color from theme */
+  margin: 4px 0;
+}
+
+/* Bio Section */
+.bio {
+  font-size: 1.2em;
+  text-align: justify;
+  margin: 10px 0;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  color: inherit; /* Use link color from theme */
+  font-size: 1.3em;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.social-link:hover {
+  color: #07f7fb;
+}
+
+.social-link svg {
+  margin-right: 10px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  /* Navbar */
+  .navbar {
+    /* flex-direction: column; */
+    padding: 15px;
+  }
+
+  .navbar-link {
+    font-size: 1.5em;
+  }
+
+  .theme-toggle {
+    font-size: 1.5em;
+  }
+
+  /* Wrapper */
+  .wrapper {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .header {
+    font-size: 2em;
+  }
+
+  .sub-header {
+    font-size: 1.1em;
+  }
+
+  .bio {
+    font-size: 1.1em;
+  }
+
+  .social-link {
+    font-size: 1.2em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Profile Image */
+  .profile-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  /* Header and Sub-header */
+  .header {
+    font-size: 1.8em;
+  }
+
+  .sub-header {
+    font-size: 1em;
+  }
+
+  .social-link {
+    font-size: 1em;
+  }
+}
