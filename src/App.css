@@ -21,7 +21,7 @@ body {
   flex-direction: column;
 }
 
-.app {
+.App {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,10 +70,7 @@ body {
   text-decoration: none;
   font-size: 1.2em;
   padding: 0 15px;
-}
-
-.navbar-link:hover {
-  color: #ff5733;
+  /* color: blueviolet; */
 }
 
 /* Theme Toggle Button */
@@ -144,6 +141,24 @@ body {
 
 .social-link svg {
   margin-right: 10px;
+}
+
+.icon {
+  display: inline-block;
+  transition: transform 0.5s ease-in-out;
+}
+
+.icon:hover {
+  animation: rotateLeftRight 0.6s infinite alternate;
+}
+
+@keyframes rotateLeftRight {
+  0% {
+    transform: rotate(-25deg);
+  }
+  100% {
+    transform: rotate(25deg);
+  }
 }
 
 /* Responsive Styles */

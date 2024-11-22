@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import "./App.css"; // Make sure App.css is included
-import { FaLinkedin, FaGithub, FaMoon, FaSun } from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import { FaMoon, FaSun } from "react-icons/fa";
 import { createGlobalStyle } from "styled-components";
+import Loader from "./components/Loader";
+import Connect from "./components/Connect";
 
 // Global styles for dark/light themes
 const GlobalStyle = createGlobalStyle`
@@ -37,77 +38,74 @@ const darkTheme = {
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(true);
   const theme = isDarkTheme ? darkTheme : lightTheme;
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading (e.g., fetching data from an API)
+    setTimeout(() => {
+      setIsLoading(false); // Set loading to false after 3 seconds (simulating API response)
+    }, 2000);
+  }, []);
 
   const toggleTheme = () => setIsDarkTheme((prevTheme) => !prevTheme);
 
   return (
-    <>
-      <GlobalStyle theme={theme} />
-      {/* Navbar */}
-      <nav className="navbar">
-        <div className="navbar-left">
-          <a
-            href="/"
-            className="navbar-link"
-          >
-            Sai Prashanth
-          </a>
-        </div>
-        <button
-          className="theme-toggle"
-          onClick={toggleTheme}
-        >
-          {isDarkTheme ? <FaSun /> : <FaMoon />}
-        </button>
-      </nav>
+    <div className="App">
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <GlobalStyle theme={theme} />
+          {/* Navbar */}
+          <nav className="navbar">
+            <div className="navbar-left">
+              <a
+                href="/"
+                className="navbar-link"
+              >
+                Sai Prashanth
+              </a>
+            </div>
+            <button
+              className="theme-toggle"
+              onClick={toggleTheme}
+            >
+              {isDarkTheme ? (
+                <FaSun className="icon" />
+              ) : (
+                <FaMoon className="icon" />
+              )}
+            </button>
+          </nav>
 
-      {/* Profile Wrapper */}
-      <div className="wrapper">
-        <img
-          src="https://avatars.githubusercontent.com/u/171444765?v=4"
-          alt="Sai Prashanth"
-          className="profile-image"
-        />
-        <h1 className="header">Sai Prashanth</h1>
-        <p className="sub-header">Full Stack Developer</p>
-        <p
-          className="bio"
-          id="bio"
-        >
-          Hi! I'm a passionate web developer with a love for building innovative
-          applications and exploring new technologies. I'm always learning and
-          excited to work on interesting projects!
-        </p>
+          {/* Profile Wrapper */}
+          <div className="wrapper">
+            <img
+              src="https://avatars.githubusercontent.com/u/171444765?v=4"
+              alt="Sai Prashanth"
+              className="profile-image"
+            />
+            <h1 className="header">Sai Prashanth</h1>
+            <p className="sub-header">Full Stack Developer</p>
+            <p
+              className="bio"
+              id="bio"
+            >
+              Hi! I'm a passionate web developer with a love for building
+              innovative applications and exploring new technologies. I'm always
+              learning and excited to work on interesting projects!
+            </p>
 
-        {/* Social Links */}
-        <div className="social-links">
-          <a
-            href="https://www.linkedin.com/in/saiprashanthk"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-link"
-          >
-            <FaLinkedin /> LinkedIn
-          </a>
-          <a
-            href="https://github.com/ksaiprashanth"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-link"
-          >
-            <FaGithub /> GitHub
-          </a>
-          <a
-            href="https://x.com/saiprashanth0"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="social-link"
-          >
-            <FaSquareXTwitter /> X (Twitter)
-          </a>
-        </div>
-      </div>
-    </>
+            {/* <div className="line"></div> */}
+
+            {/* Social Links */}
+            <div className="social-links">
+              <Connect />
+            </div>
+          </div>
+        </>
+      )}
+    </div>
   );
 }
 
